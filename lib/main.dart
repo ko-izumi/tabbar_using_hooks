@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
 class TabBarViewWidget extends HookWidget {
   TabBarViewWidget({Key? key}) : super(key: key);
 
+  /// list of tab bar
   final List<Widget> tabList = [
     const Tab(child: Text('Tab 1')),
     const Tab(child: Text('Tab 2')),
@@ -40,6 +41,7 @@ class TabBarViewWidget extends HookWidget {
     final _controller = useTabController(initialLength: tabList.length);
     return Column(
       children: [
+        /// tabbarを表示
         TabBar(
           controller: _controller,
           tabs: tabList,
@@ -48,6 +50,8 @@ class TabBarViewWidget extends HookWidget {
         Expanded(
           child: TabBarView(
             controller: _controller,
+
+            /// body of tab
             children: const [
               Center(child: Text('Tab 1 View')),
               Center(child: Text('Tab 2 View')),
